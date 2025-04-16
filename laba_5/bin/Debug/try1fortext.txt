@@ -1,0 +1,1 @@
+﻿Samsung Gal. S23	2340x1080	8	Android	2	True	True	Apple iPhone 15 Pro Max	2796x1290	10	iOS 17	3	True	False	Xiaomi 14 Ultra	3200x1440	16	Android	3	True	True	HUAWEI P60 Pro	2340x1080	8	Android	2	False	True	1232	12	0		0	False	False	
