@@ -5,12 +5,14 @@ namespace laba_6
 {
     public partial class fMain : Form
     {
-        public abstract class Solid
+        // Інтерфейс замість абстрактного класу
+        public interface ISolid
         {
-            public abstract double GetVolume();
+            double GetVolume();
         }
 
-        public class Pyramid : Solid
+        // Клас піраміди реалізує інтерфейс ISolid
+        public class Pyramid : ISolid
         {
             public double A { get; set; }
             public double H { get; set; }
@@ -21,13 +23,14 @@ namespace laba_6
                 H = h;
             }
 
-            public override double GetVolume()
+            public double GetVolume()
             {
                 return (1.0 / 3.0) * A * A * H;
             }
         }
 
-        public class Sphere : Solid
+        // Клас сфери реалізує інтерфейс ISolid
+        public class Sphere : ISolid
         {
             public double R { get; set; }
 
@@ -36,11 +39,12 @@ namespace laba_6
                 R = r;
             }
 
-            public override double GetVolume()
+            public double GetVolume()
             {
                 return (4.0 / 3.0) * Math.PI * Math.Pow(R, 3);
             }
         }
+
         public fMain()
         {
             InitializeComponent();
@@ -54,8 +58,9 @@ namespace laba_6
                 double height = Convert.ToDouble(tbHeight.Text);
                 double radius = Convert.ToDouble(tbRadius.Text);
 
-                Pyramid pyramid = new Pyramid(basis, height);
-                Sphere sphere = new Sphere(radius);
+                // Використання інтерфейсу як типу
+                ISolid pyramid = new Pyramid(basis, height);
+                ISolid sphere = new Sphere(radius);
 
                 double pyramidVolume = pyramid.GetVolume();
                 double sphereVolume = sphere.GetVolume();
