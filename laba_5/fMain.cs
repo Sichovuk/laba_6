@@ -67,15 +67,15 @@ namespace laba_5
 
         private void fMain_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Phone phone = new Phone();
+            IPhone phone = new Phone();
 
             fPhone ft = new fPhone(phone);
-            if (ft.ShowDialog() == DialogResult.OK) 
+            if (ft.ShowDialog() == DialogResult.OK)
             {
                 bindSrcPhones.Add(phone);
             }
@@ -83,10 +83,10 @@ namespace laba_5
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Phone phone = (Phone)bindSrcPhones.List[bindSrcPhones.Position];
+            IPhone phone = (IPhone)bindSrcPhones.List[bindSrcPhones.Position];
 
             fPhone ft = new fPhone(phone);
-            if (ft.ShowDialog() == DialogResult.OK) 
+            if (ft.ShowDialog() == DialogResult.OK)
             {
                 bindSrcPhones.List[bindSrcPhones.Position] = phone;
             }
@@ -127,7 +127,7 @@ namespace laba_5
                 sw = new StreamWriter(saveFileDialog1.FileName, false, Encoding.UTF8);
                 try
                 {
-                    foreach (Phone phone in bindSrcPhones.List)
+                    foreach (IPhone phone in bindSrcPhones.List)
                     {
                         sw.WriteLine(phone.Model + "\t" + phone.Diagonal + "\t" +
                         phone.Cores + "\t" + phone.Platform + "\t" +
@@ -158,7 +158,7 @@ namespace laba_5
                 bw = new BinaryWriter(saveFileDialog1.OpenFile());
                 try
                 {
-                    foreach (Phone phone in bindSrcPhones.List)
+                    foreach (IPhone phone in bindSrcPhones.List)
                     {
                         bw.Write(phone.Model);
                         bw.Write(phone.Diagonal);
@@ -197,7 +197,7 @@ namespace laba_5
                     while ((s = sr.ReadLine()) != null)
                     {
                         string[] split = s.Split('\t');
-                        Phone phone= new Phone(split[0], split[1],
+                        IPhone phone = new Phone(split[0], split[1],
                         int.Parse(split[2]), split[3], int.Parse(split[4]),
                         bool.Parse(split[5]), bool.Parse(split[6]));
                         bindSrcPhones.Add(phone);
@@ -228,7 +228,8 @@ namespace laba_5
                 br = new BinaryReader(openFileDialog.OpenFile());
                 try
                 {
-                    Phone phone; while (br.BaseStream.Position < br.BaseStream.Length)
+                    IPhone phone;
+                    while (br.BaseStream.Position < br.BaseStream.Length)
                     {
                         phone = new Phone();
                         for (int i = 0; i <= 8; i++)

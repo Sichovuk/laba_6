@@ -1,12 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace laba_5
 {
-    public class Phone
+    public interface IPhone
+    {
+        string Model { get; set; }
+        string Diagonal { get; set; }
+        int Cores { get; set; }
+        string Platform { get; set; }
+        int SimQuantity { get; set; }
+        bool HasAI { get; set; }
+        bool HasTypeC { get; set; }
+
+        string Has4Cores();
+    }
+
+    public class Phone : IPhone
     {
         public string Model { get; set; }
         public string Diagonal { get; set; }
@@ -16,9 +25,7 @@ namespace laba_5
         public bool HasAI { get; set; }
         public bool HasTypeC { get; set; }
 
-        public Phone()
-        {
-        }
+        public Phone() { }
 
         public Phone(string model, string diagonal, int cores, string platform, int simQuantity, bool hasAI, bool hasTypeC)
         {
@@ -33,19 +40,9 @@ namespace laba_5
 
         public string Has4Cores()
         {
-            if (Cores == 4)
-            {
-                return "Телефон має 4 ядра";
-            }
-            return "Телефон не має 4 ядер";
+            return Cores == 4 ? "Телефон має 4 ядра" : "Телефон не має 4 ядер";
         }
 
-        public string GetPhone4Cores
-        {
-            get
-            {
-                return Has4Cores();
-            }
-        }
+        public string GetPhone4Cores => Has4Cores();
     }
 }

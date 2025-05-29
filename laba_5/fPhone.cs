@@ -12,8 +12,9 @@ namespace laba_5
 {
     public partial class fPhone : Form
     {
-        public Phone ThePhone;
-        public fPhone(Phone t)
+        public IPhone ThePhone;
+        public fPhone(IPhone t)
+    
         {
             ThePhone = t;
             InitializeComponent();

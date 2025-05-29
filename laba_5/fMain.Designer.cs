@@ -44,6 +44,7 @@
             this.btnOpenFromBinary = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindSrcPhones = new System.Windows.Forms.BindingSource(this.components);
+            this.bindSrcPhones.DataSource = typeof(laba_5.IPhone);
             this.gvPhones = new System.Windows.Forms.DataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1.SuspendLayout();
@@ -69,7 +70,7 @@
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1204, 44);
+            this.toolStrip1.Size = new System.Drawing.Size(1204, 38);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -79,7 +80,7 @@
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(40, 38);
+            this.btnAdd.Size = new System.Drawing.Size(40, 32);
             this.btnAdd.Text = "Додати запис про телефон";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -187,12 +188,12 @@
             this.gvPhones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvPhones.DataSource = this.bindSrcPhones;
             this.gvPhones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvPhones.Location = new System.Drawing.Point(0, 44);
+            this.gvPhones.Location = new System.Drawing.Point(0, 38);
             this.gvPhones.Name = "gvPhones";
             this.gvPhones.ReadOnly = true;
             this.gvPhones.RowHeadersWidth = 72;
             this.gvPhones.RowTemplate.Height = 31;
-            this.gvPhones.Size = new System.Drawing.Size(1204, 1084);
+            this.gvPhones.Size = new System.Drawing.Size(1204, 1090);
             this.gvPhones.TabIndex = 1;
             // 
             // fMain
