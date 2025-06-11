@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace laba_6
@@ -58,15 +59,20 @@ namespace laba_6
                 double height = Convert.ToDouble(tbHeight.Text);
                 double radius = Convert.ToDouble(tbRadius.Text);
 
-                // Використання інтерфейсу як типу
-                ISolid pyramid = new Pyramid(basis, height);
-                ISolid sphere = new Sphere(radius);
+                // Список геометричних тіл (поліморфізм)
+                List<ISolid> solids = new List<ISolid>
+                {
+                    new Pyramid(basis, height),
+                    new Sphere(radius)
+                };
 
-                double pyramidVolume = pyramid.GetVolume();
-                double sphereVolume = sphere.GetVolume();
-
-                tbVPyr.Text = pyramidVolume.ToString("F2");
-                tbVSph.Text = sphereVolume.ToString("F2");
+                foreach (ISolid solid in solids)
+                {
+                    if (solid is Pyramid)
+                        tbVPyr.Text = solid.GetVolume().ToString("F2");
+                    else if (solid is Sphere)
+                        tbVSph.Text = solid.GetVolume().ToString("F2");
+                }
             }
             catch (Exception ex)
             {
