@@ -273,5 +273,24 @@ namespace laba_5
                 }
             }
         }
+
+        private void btnShowWithForeach_Click(object sender, EventArgs e)
+        {
+            PhoneCollection collection = new PhoneCollection();
+            foreach (IPhone phone in bindSrcPhones.List)
+            {
+                collection.Add(phone);
+            }
+
+            collection.SortByCores();
+
+            string result = "";
+            foreach (IPhone phone in collection)
+            {
+                result += $"{phone.Model} - {phone.Cores} ядер\n";
+            }
+
+            MessageBox.Show(result, "Телефони (foreach)");
+        }
     }
 }

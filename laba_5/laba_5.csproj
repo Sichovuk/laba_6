@@ -59,6 +59,7 @@
       <DependentUpon>fPhone.cs</DependentUpon>
     </Compile>
     <Compile Include="Phone.cs" />
+    <Compile Include="PhoneCollection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fMain.resx">
